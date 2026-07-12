@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import "../styles/flash.css";
+
+@theme {
+  --color-accent-yellow: #ecad0a;
+  --color-blue-primary: #209dd7;
+  --color-purple-secondary: #753991;
+  --color-bg-base: #0b0e14;
+  --color-bg-elevated: #131a26;
+  --color-border-muted: #243043;
+  --color-text-primary: #e6edf3;
+  --color-text-muted: #7d8a9b;
+  --color-pnl-up: #22c55e;
+  --color-pnl-down: #ef4444;
+}
+
+html {
+  color-scheme: dark;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+}
+
+body {
+  background-color: var(--color-bg-base);
+  min-height: 100vh;
+}
+
+/* Explicit utility shortcuts. Tailwind v4 generates these from the @theme
+ * tokens, but we declare them here to guarantee they are available even if
+ * Tailwind's content scanner misses a dynamic className. */
+@layer utilities {
+  .text-pnl-up {
+    color: var(--color-pnl-up);
+  }
+  .text-pnl-down {
+    color: var(--color-pnl-down);
+  }
+  .bg-pnl-up {
+    background-color: var(--color-pnl-up);
+  }
+  .bg-pnl-down {
+    background-color: var(--color-pnl-down);
+  }
+}

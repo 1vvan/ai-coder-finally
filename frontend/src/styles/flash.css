@@ -1,0 +1,46 @@
+/* Price flash animations — applied briefly when a ticker's direction changes. */
+
+@keyframes flash-up {
+  0% {
+    background-color: rgba(34, 197, 94, 0.4);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flash-down {
+  0% {
+    background-color: rgba(239, 68, 68, 0.4);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.flash-up {
+  animation: flash-up 500ms ease-out;
+}
+
+.flash-down {
+  animation: flash-down 500ms ease-out;
+}
+
+/* Header total-value flash — the one bold moment of color in the UI.
+ * Briefly renders the value in amber when the live tick pushes it up,
+ * then fades back to the standard text color. Applied imperatively by
+ * Header.tsx via a transient className. */
+@keyframes value-flash-up {
+  0% {
+    color: var(--color-accent-yellow);
+    text-shadow: 0 0 12px rgba(236, 173, 10, 0.35);
+  }
+  100% {
+    color: var(--color-text-primary);
+    text-shadow: none;
+  }
+}
+
+.value-flash-up {
+  animation: value-flash-up 600ms ease-out;
+}
